@@ -1,182 +1,54 @@
-﻿// ========================================
-// 🌈 PonEWorx + bkeepit Hybrid Theme
-// Fully parseable for React Native / Expo
-// ========================================
-
-export const Colors = {
-    // --- PonEWorx Core ---
-    poneDark: '#292F37',
-    poneMid: '#7B7F84',
-    poneLight: '#F4EBE8',
-    poneAccent: '#A1ECE3',
-    poneDeep: '#1D2E35',
-    poneGold: '#D5A354',
-    poneIndigo: '#6B6C9C',
-    poneRose: '#AB2C69',
-
-    // --- bkeepit Vibrants ---
-    bkeepitOrange: '#FFAE4A',
-    bkeepitTeal: '#39ABAE',
-    bkeepitPink: '#E6457C',
-    bkeepitPurple: '#A20CDD',
-    bkeepitMagenta: '#D23698',
-    bkeepitRed: '#FD5B5A',
-    bkeepitBlush: '#C78284',
-
-    // --- Semantic ---
-    background: '#F4EBE8',
-    text: '#292F37',
-    primary: '#A1ECE3',
-    secondary: '#39ABAE',
-    highlight: '#FFAE4A',
+const Colors = {
+  teal: "#39ABAE",
+  magenta: "#E6457C",
+  purple: "#A20CDD",
+  navy: "#1B2330",
+  sand: "#F4EBE8",
+  mint: "#A1ECE3",
+  eblue: "#3C75FF",
+  orange: "#FF884C",
 };
 
-// --- Typography ---
-export const Typography = {
-    base: 'Proxima Nova',
-    surface: 'Poppins',
-    accent: 'Nunito Sans',
-    poetic: 'Enchanter',
-    size: {
-        xs: 12,
-        sm: 14,
-        md: 16,
-        lg: 20,
-        xl: 24,
-        xxl: 32,
-    },
-    weight: {
-        light: '300',
-        regular: '400',
-        medium: '500',
-        bold: '700',
-    },
-};
+export type ThemeMode = "light" | "dark";
 
-// --- Spacing ---
-export const Spacing = {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 32,
-    xl: 48,
-};
-
-// --- Border Radius ---
-export const Radius = {
-    sm: 4,
-    md: 8,
-    lg: 16,
-};
-
-// --- Elevation ---
-export const Shadow = {
-    sm: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.05,
-        shadowRadius: 2,
-        elevation: 2,
-    },
-    md: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.1,
-        shadowRadius: 6,
-        elevation: 4,
-    },
-};
-
-// --- Layout Helpers ---
-export const Layout = {
-    container: {
-        maxWidth: 1200,
-        paddingHorizontal: Spacing.md,
-    },
-    flexCenter: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-};
-
-// --- Component Presets ---
-export const Components = {
-    card: {
-        backgroundColor: Colors.background,
-        borderRadius: Radius.md,
-        padding: Spacing.md,
-        ...Shadow.sm,
-    },
-    button: {
-        height: 48,
-        borderRadius: Radius.md,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: Colors.primary,
-    },
-    buttonText: {
-        color: Colors.background,
-        fontFamily: Typography.surface,
-        fontSize: Typography.size.md,
-        fontWeight: Typography.weight.bold,
-    },
-    input: {
-        backgroundColor: Colors.bkeepitBlush,
-        borderRadius: Radius.md,
-        padding: Spacing.sm,
-        fontFamily: Typography.base,
-        borderWidth: 1,
-        borderColor: Colors.primary,
-    },
-    bottomMenu: {
-        flexDirection: 'row' as const,
-        justifyContent: 'space-between',
-        backgroundColor: Colors.poneDark,
-        paddingVertical: Spacing.sm,
-        paddingHorizontal: Spacing.md,
-    },
-    menuBtn: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-};
-
-// --- Responsive Typography ---
-export const TextPresets = {
-    h1: {
-        fontSize: Typography.size.xxl,
-        fontWeight: Typography.weight.bold,
-        color: Colors.text,
-    },
-    h2: {
-        fontSize: Typography.size.xl,
-        fontWeight: Typography.weight.bold,
-        color: Colors.text,
-    },
-    h3: {
-        fontSize: Typography.size.lg,
-        fontWeight: Typography.weight.medium,
-        color: Colors.text,
-    },
-    p: {
-        fontSize: Typography.size.md,
-        lineHeight: 22,
-        color: Colors.text,
-    },
-};
-
-// --- Utility Hook ---
 export const Theme = {
-    Colors,
-    Typography,
-    Spacing,
-    Radius,
-    Shadow,
-    Components,
-    TextPresets,
+  light: {
+    mode: "light" as ThemeMode,
+    bg: Colors.sand,
+    text: "#17202A",
+    primary: Colors.teal,
+    accent: Colors.magenta,
+    card: "rgba(255,255,255,0.9)",
+    border: "rgba(0,0,0,0.08)",
+    shadow: "0 4px 16px rgba(0,0,0,0.08)",
+    gradient: ["#167A84","#8D2BB7"],
+  },
+  dark: {
+    mode: "dark" as ThemeMode,
+    bg: Colors.navy,
+    text: "#F3F6F9",
+    primary: Colors.teal,
+    accent: Colors.magenta,
+    card: "rgba(20,20,28,0.6)",
+    border: "rgba(255,255,255,0.08)",
+    shadow: "0 6px 24px rgba(0,0,0,0.45)",
+    gradient: ["#1B2350","#9E2CCF"],
+  },
+  Colors,
+  Spacing: { xs: 4, sm: 8, md: 16, lg: 24, xl: 32 },
+  Radius: { sm: 6, md: 12, lg: 20 },
+  Text: {
+    h1: { fontSize: 32, fontWeight: "700" as const },
+    h2: { fontSize: 24, fontWeight: "700" as const },
+    p:  { fontSize: 16, fontWeight: "400" as const },
+  },
+  Glass: (mode: ThemeMode) => ({
+    backgroundColor: mode === "light" ? "rgba(255,255,255,0.9)" : "rgba(20,20,28,0.6)",
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: mode === "light" ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)",
+  })
 };
 
-export type ThemeType = typeof Theme;
 export default Theme;
