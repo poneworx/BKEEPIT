@@ -1,0 +1,8 @@
+﻿node_modules/
+dist/
+build/
+coverage/
+docs/logs/
+quarantine/temp/
+.env
+.DS_Store

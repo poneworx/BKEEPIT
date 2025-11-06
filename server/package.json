@@ -1,0 +1,33 @@
+﻿{
+  "name": "bkeepit-server",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "express-rate-limit": "7.1.5",
+    "helmet": "7.1.0",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "8.6.1",
+    "nodemailer": "6.9.14",
+    "pino": "9.3.2",
+    "pino-http": "10.2.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "tsx": "4.19.2",
+    "typescript": "5.6.3",
+    "vitest": "2.1.4",
+    "@types/express": "4.17.21",
+    "@types/node": "22.7.8"
+  }
+}

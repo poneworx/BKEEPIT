@@ -1,0 +1,1 @@
+﻿Check /health, /version, MailHog UI at :8025.

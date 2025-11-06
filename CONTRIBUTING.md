@@ -1,0 +1,1 @@
+﻿PRs welcome. Use feature branches and conventional commits.

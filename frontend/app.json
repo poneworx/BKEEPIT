@@ -1,0 +1,9 @@
+﻿{
+  "expo": {
+    "name": "bkeepit",
+    "slug": "bkeepit",
+    "scheme": "bkeepit",
+    "plugins": [],
+    "extra": { "apiBaseUrl": "http://localhost:3000" }
+  }
+}
