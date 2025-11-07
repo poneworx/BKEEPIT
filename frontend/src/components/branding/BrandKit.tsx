@@ -1,17 +1,13 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import Theme from '../../styles/globals';
-import BkeepitPrimary from '../../assets/icons/BkeepitPrimary';
-import PoneworxPartner from '../../assets/icons/PoneworxPartner';
+import React from "react";
+import { View, Text } from "react-native";
+import useTheme from "../../hooks/useTheme";
 
-export default function BrandKit() {
+export default function BrandKitHeader() {
+  const { tokens } = useTheme();
   return (
-    <View style={{ alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-      <BkeepitPrimary width={160} height={50} />
-      <Text style={[Theme.TextPresets.p, { color: Theme.Colors.poneMid, marginTop: 8 }]}>
-        Powered by
-      </Text>
-      <PoneworxPartner width={120} height={30} />
+    <View style={{ alignItems: "center", marginBottom: 16 }}>
+      <Text style={{ fontSize: 20, fontWeight: "700", color: tokens.primary }}>poneworx.</Text>
+      <Text style={{ fontSize: 20, fontWeight: "700", color: tokens.accent }}>+ bkeepit</Text>
     </View>
   );
 }

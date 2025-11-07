@@ -1,14 +1,24 @@
-﻿import React, { useState } from 'react';
-import { View, Text } from 'react-native';
-import Screen from '../../components/layout/Screen';
-import Card from '../../components/ui/Card';
-import Input from '../../components/ui/Input';
-import Button from '../../components/ui/Button';
-import { login } from '../../services/auth';
-import { useAuthStore } from '../../store/authStore';
-export default function LoginScreen(){
-  const [email,setEmail]=useState('test@bkeepit.dev'); const [password,setPassword]=useState('Password123'); const [msg,setMsg]=useState('');
-  const set=useAuthStore(s=>s.set);
-  async function onGo(){ try{ const r=await login(email,password); set({ userId: r.data.userId, verified: r.data.emailVerified }); setMsg('Logged in'); } catch{ setMsg('Auth error'); } }
-  return <Screen><View style={{flex:1,justifyContent:'center'}}><Card><Text style={{fontSize:22, color:'#f6f7f8', marginBottom:12}}>Welcome back</Text><Input placeholder='Email' value={email} onChangeText={setEmail}/><Input placeholder='Password' secureTextEntry value={password} onChangeText={setPassword}/><Button title='Login' onPress={onGo}/><Text style={{marginTop:8, color:'#b9bcc2'}}>{msg}</Text></Card></View></Screen>;
+import React from "react";
+import { View, Text, TextInput, Pressable } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import BrandKitHeader from "../../components/branding/BrandKit";
+import useTheme from "../../hooks/useTheme";
+
+export default function Login(){
+  const { tokens, mode } = useTheme();
+  return (
+    <LinearGradient colors={tokens.gradient} style={{ flex:1, padding: 20, justifyContent:"center" }}>
+      <View style={{ alignItems: "center", marginBottom: 24 }}>
+        <BrandKitHeader />
+      </View>
+      <View style={ { ...tokens.Glass(mode), alignSelf:"center", width:"100%", maxWidth: 360 } }>
+        <Text style={[{ marginBottom: 12 }, tokens.Text.h2]}>Welcome Back</Text>
+        <TextInput placeholder="Email" placeholderTextColor="#8BA0A6" style={{ backgroundColor:"rgba(255,255,255,0.08)", borderRadius:12, padding:12, marginBottom:12 }} />
+        <TextInput placeholder="Password" placeholderTextColor="#8BA0A6" secureTextEntry style={{ backgroundColor:"rgba(255,255,255,0.08)", borderRadius:12, padding:12, marginBottom:16 }} />
+        <Pressable style={{ backgroundColor: tokens.primary, padding:14, borderRadius:12, alignItems:"center" }}>
+          <Text style={{ color:"#fff", fontWeight:"700" }}>Sign In</Text>
+        </Pressable>
+      </View>
+    </LinearGradient>
+  );
 }
