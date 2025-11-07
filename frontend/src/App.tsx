@@ -1,21 +1,45 @@
+// -----------------------------
+// React & Core
+// -----------------------------
 import React, { useEffect, useState, useRef } from "react";
-import { StatusBar, Animated, StyleSheet } from "react-native";
+import { Animated, StyleSheet } from "react-native";
+
+// -----------------------------
+// Expo & Environment
+// -----------------------------
+import { StatusBar } from "expo-status-bar"; // ✅ Expo’s version supports style="light"
 import { NavigationContainer } from "@react-navigation/native";
+
+// -----------------------------
+// Navigation
+// -----------------------------
 import AppNavigator from "./navigation/AppNavigator";
 import AuthNavigator from "./navigation/AuthNavigator";
+
+// -----------------------------
+// State Management
+// -----------------------------
 import { useAuthStore } from "./store/authStore";
 import { usePinStore } from "./store/pinStore";
+
+// -----------------------------
+// Services & Config
+// -----------------------------
 import api from "./services/api";
+
+// -----------------------------
+// UI & Screens
+// -----------------------------
 import Splash from "./screens/Splash";
 
+// -----------------------------
+// App Component
+// -----------------------------
 export default function App() {
   const { token, restoreSession } = useAuthStore();
   const { hasPin, checkIfPinExists } = usePinStore();
-
   const [booting, setBooting] = useState(true);
   const [showSplash, setShowSplash] = useState(true);
-
-  // For navigator fade-in
   const navOpacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -36,7 +60,6 @@ export default function App() {
     initialize();
   }, [restoreSession, checkIfPinExists]);
 
-  // When splash finishes fading out, cross-fade navigators in
   const handleSplashFadeOut = () => {
     setShowSplash(false);
     Animated.timing(navOpacity, {
@@ -73,6 +96,9 @@ export default function App() {
   );
 }
 
+// -----------------------------
+// Styles
+// -----------------------------
 const styles = StyleSheet.create({
   container: {
     flex: 1,

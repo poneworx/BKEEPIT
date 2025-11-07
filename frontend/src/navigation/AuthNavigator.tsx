@@ -1,14 +1,23 @@
+// -----------------------------
+// React & Navigation Core
+// -----------------------------
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import type { AuthStackParamList } from "./types"; // ✅ type-safe route list
 
-// Auth flow screens
-import Login from "../screens/Login";
-import Register from "../screens/Register";
-import VerifyEmail from "../screens/VerifyEmail";
-import SetPIN from "../screens/SetPIN";
-import EnterPIN from "../screens/EnterPIN";
+// -----------------------------
+// Screens
+// -----------------------------
+import LoginScreen from "../screens/Login";
+import RegisterScreen from "../screens/Register";
+import VerifyEmailScreen from "../screens/VerifyEmail";
+import SetPINScreen from "../screens/SetPIN";
+import EnterPINScreen from "../screens/EnterPIN";
 
-const Stack = createNativeStackNavigator();
+// -----------------------------
+// Navigator
+// -----------------------------
+const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 export default function AuthNavigator() {
   return (
@@ -17,14 +26,13 @@ export default function AuthNavigator() {
       screenOptions={{
         headerShown: false,
         animation: "slide_from_right",
-        gestureEnabled: true,
       }}
     >
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Register" component={Register} />
-      <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
-      <Stack.Screen name="SetPIN" component={SetPIN} />
-      <Stack.Screen name="EnterPIN" component={EnterPIN} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="VerifyEmail" component={VerifyEmailScreen} />
+      <Stack.Screen name="SetPIN" component={SetPINScreen} />
+      <Stack.Screen name="EnterPIN" component={EnterPINScreen} />
     </Stack.Navigator>
   );
 }
