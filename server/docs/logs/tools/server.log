@@ -3,3 +3,4 @@
 {"level":30,"time":1762483004220,"pid":11588,"hostname":"DTS-WorkPC","msg":"✅ Server running on port 3000"}
 {"level":30,"time":1762483412273,"pid":10392,"hostname":"DTS-WorkPC","msg":"✅ Server running on port 3000"}
 {"level":30,"time":1762484076780,"pid":4704,"hostname":"DTS-WorkPC","msg":"✅ Server running on port 3000"}
+{"level":30,"time":1762486878747,"pid":4940,"hostname":"DTS-WorkPC","msg":"Server ready on port 3000 [PID 4940]"}

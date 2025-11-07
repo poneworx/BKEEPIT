@@ -1,8 +1,80 @@
-﻿node_modules/
+﻿# === Node and Build Artifacts ===
+node_modules/
 dist/
 build/
 coverage/
-docs/logs/
-quarantine/temp/
+.temp/
+.nyc_output/
+
+# === Expo & React Native ===
+.expo/
+.expo-shared/
+frontend/.expo/
+*.expo
+*.packager-info
+*.vscode/
+*.log
+*.expo/
+*.bundle
+*.jsbundle
+
+# === Environment & Local Config ===
 .env
+.env.*
+!.env.example
+.expo-env.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# === Platform Specific ===
+*.apk
+*.aab
+*.ipa
+*.app
+*.xcworkspace/
+*.xcuserdata/
+*.xcodeproj/
+*.xcuserstate
+Pods/
+ios/Podfile.lock
+ios/build/
+android/.gradle/
+android/app/build/
+
+# === IDE / OS Files ===
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Documentation & Logs ===
+docs/logs/
+docs/logs/**/*
+docs/temp/
+quarantine/temp/
+quarantine/logs/
+*.log
+
+# === Generated Scripts / Temp Files ===
+scripts/temp/
+tests/output/
+frontend/web-build/
+frontend/ios/
+frontend/android/
+
+# === Misc Project-Specific ===
+frontend/.expo/
+frontend/.expo-shared/
+frontend/.env
+frontend/web-report/
+server/.env
+server/logs/
+server/uploads/
+server/temp/
+
+# === Git Safe Keeps ===
+!.gitkeep
