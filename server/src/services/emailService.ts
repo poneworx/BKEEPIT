@@ -1,4 +1,4 @@
-import transporter from "../config/emailConfig";
+import { transporter } from "../config/emailConfig";
 import { renderFile } from "ejs";
 import path from "path";
 
